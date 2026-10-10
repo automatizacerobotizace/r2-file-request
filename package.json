@@ -1,0 +1,21 @@
+{
+  "name": "r2-file-request",
+  "version": "1.0.0",
+  "private": true,
+  "license": "Unlicense",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "types": "wrangler types --config wrangler.example.jsonc"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-plugin": "1.4.0",
+    "typescript": "6.0.3",
+    "vitest": "4.1.11",
+    "wrangler": "4.149.0"
+  }
+}

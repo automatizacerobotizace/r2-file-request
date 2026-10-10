@@ -1,0 +1,8 @@
+node_modules/
+.wrangler/
+.dev.vars
+.dev.vars.*
+/wrangler.jsonc
+public/brand/
+.env
+.env.*

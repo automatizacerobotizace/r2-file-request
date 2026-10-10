@@ -1,0 +1,59 @@
+// Public example configuration. Copy to wrangler.jsonc and replace the placeholder values.
+// The test suite also uses this file (npm test).
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "r2-file-request",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-01",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [{ "pattern": "fileshare.example.com", "custom_domain": true }],
+  "observability": { "enabled": false },
+  "triggers": { "crons": ["*/15 * * * *"] },
+  "assets": { "directory": "./public" },
+  "r2_buckets": [
+    { "binding": "BUCKET", "bucket_name": "r2-file-request", "jurisdiction": "eu" }
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "r2-file-request",
+      "database_id": "00000000-0000-0000-0000-000000000000",
+      "migrations_dir": "migrations"
+    }
+  ],
+  "vars": {
+    "PUBLIC_ORIGIN": "https://fileshare.example.com",
+    "ADMIN_PATH": "/admin",
+    "ADMIN_EMAIL": "admin@example.com",
+    "MAIL_FROM": "fileshare@example.com",
+    "ORG_NAME": "Example",
+    "DEFAULT_LANG": "en",
+    "TIME_ZONE": "UTC",
+    "SMTP_HOST": "smtp.example.com",
+    "SMTP_PORT": "587",
+    "SMTP_USER": "fileshare@example.com",
+    "R2_S3_ENDPOINT": "https://ACCOUNT_ID.eu.r2.cloudflarestorage.com",
+    "R2_BUCKET_NAME": "r2-file-request",
+    "TURNSTILE_SITE_KEY": "1x00000000000000000000AA",
+    "ACCESS_TEAM_DOMAIN": "https://example.cloudflareaccess.com",
+    "ACCESS_AUD": "YOUR_ACCESS_AUD",
+    "NOTIFY_FIRST_DOWNLOAD": "true",
+    "PRIVACY_NOTICE_CS": "Zpracováváme vaši e-mailovou adresu a název souboru jen pro tento přenos. Záznamy mažeme 90 dní po vypršení.",
+    "PRIVACY_NOTICE_EN": "We process your e-mail address and the file name only for this transfer. Records are deleted 90 days after expiry.",
+    "BRAND_CSS": "",
+    "BRAND_LOGO": "",
+    "BRAND_FOOTER_HTML_CS": "",
+    "BRAND_FOOTER_HTML_EN": "",
+    "MAX_FILE_BYTES": "3000000000",
+    "REQUESTS_PER_EMAIL": "3",
+    "DAILY_REQUESTS": "20",
+    "DAILY_UPLOADS": "20",
+    "DAILY_DOWNLOADS": "20",
+    "DOWNLOADS_PER_LINK": "5",
+    "LINK_DAYS": "7",
+    "PRESIGN_SECONDS": "120",
+    "DRAFT_HOURS": "24"
+  }
+  // Secrets (wrangler secret put): SMTP_PASSWORD, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY, TURNSTILE_SECRET
+}
